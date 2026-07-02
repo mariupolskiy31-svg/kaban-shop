@@ -9,8 +9,8 @@ import os
 app = Flask(__name__)
 
 # ⚠️ ВСТАВЬ СЮДА СВОЙ URL ИЗ APPS SCRIPT
-API_URL = "https://script.google.com/macros/s/AKfycbxFHwCrriiLrTtUGUFsQ0HBYjI7SeiKOl_a9VqVdJ2GWfgjNKOM4uLzF-LK7CCZ4uGg/exec"
-
+import os
+API_URL = os.environ.get('API_URL', 'https://script.google.com/macros/s/AKfycbxFHwCrriiLrTtUGUFsQ0HBYjI7SeiKOl_a9VqVdJ2GWfgjNKOM4uLzF-LK7CCZ4uGg/exec')
 POD_SPECS = {
     "XROS 6": {"recommended_mg": "20-50mg (солевая)", "watts": "15-25W",
                "description": "Новейшая модель с регулировкой обдува"},

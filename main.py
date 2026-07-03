@@ -41,14 +41,16 @@ CONSUMABLE_SPECS = {
 
 def get_catalog():
     try:
-        response = requests.get(API_URL, timeout=30)
+        import requests
+        # Добавляем timestamp для обхода кэша Apps Script
+        url = f"{API_URL}?t={int(__import__('time').time())}"
+        response = requests.get(url, timeout=30)
         if response.status_code == 200:
             return response.json()
         return None
     except Exception as e:
         print(f"Ошибка: {e}")
         return None
-
 
 @app.route('/')
 def index():

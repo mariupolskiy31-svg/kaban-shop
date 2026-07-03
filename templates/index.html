@@ -350,7 +350,7 @@
 
         async function loadCatalog() {
             try {
-                const response = await fetch('/api/catalog');
+                const response = await fetch('/api/catalog?t=' + Date.now());
                 const result = await response.json();
 
                 if (result.success) {
